@@ -1,0 +1,25 @@
+Call stack for code snippet:
+ 
+ 1. add (push) start() (or function start) to stack
+	
+	2. - print "Start of program"
+
+ 3. add (push) firstTask() to stack
+	
+	4. - print "First task running"
+
+5. add (push) secondTask() to stack
+
+	6. - print "Second task in progress"
+
+7. secondTask() removed(pop) from stack
+
+	8.- print "Back in first task"
+
+9. firstTask() removed(pop) from stack
+	
+	10.- print "Back in start"
+
+11. Remove start() (pop) from stack
+
+ 	12.- print "Exiting out of start - end of program"
