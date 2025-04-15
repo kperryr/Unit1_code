@@ -1,0 +1,81 @@
+What is your reverseString() returning? State data type, and any other important details
+
+	--reverseString is returning a string. However, it will return 
+	substrings of the argument pass into it, until it is completely reversed.
+
+
+What operations is your function executing? explain logic in words- 
+
+	rubber ducky method:
+
+	My function reverseString will check if the base case is met. The smallest substring of any string is
+	a char. So I will check if the length of the string is 1 or less.
+	Next, I will extract the last character of the string and assign it to a new variable.
+	Next, I will extract the remaining characters of the string and assign them to a new variable.
+	In order to reverse the string, I will combine the last character of each substring that is extracted 
+	when I call reverseString and assign that to a new string.
+	Finally I will return that string.
+
+
+	PseudoCode:
+
+	Declare reverseString with one parameter (str)
+		Check if str.length <=1
+			return str if true
+		extract last char of str and assign to variable
+		extract all chars except last char and assign to variable
+		concat last char and reverseString(rest of chars) and assign to new variable
+		return new string 
+
+
+	What built-in methods are you using?
+
+		I can use .indexOf() to get the last character
+		I can use .slice() to get the last character or to remove the last character from the string
+
+
+What does the call stack look like when executing reverseString? 
+	EX "hello"
+	1.call reverseString(hello)
+		- push first instance of reverseString to stack
+
+	2.call reverseString(hell)
+		- push second instance of reverseString to stack
+
+	3.call reverseString(hel)
+		- push third instance of reverseString to stack
+
+	4.call reverseString(he)
+		- push fourth instance of reverseString to stack
+
+	5.call reverseString(h)
+		-- push fifth instance of reverseString to stack
+		return h
+		-- pop fifth instance of reverseString off stack
+
+	go back to fourth call of reverseString
+		return eh
+		- pop fourth instance of reverseString off stack
+
+	go back to third call of reverseString
+		return leh
+		- pop third instance of reverseString off stack
+
+	go back to second call of reverseString
+		return lleh
+		- pop fourth instance of reverseString off stack
+
+	go back to first call of reverseString
+		return olleh
+		- pop fifth instance of reverseString off stack
+
+What small operations are being repeated? 
+   --Operations being repeated?
+ 	I am taking the last char of each substring and 
+	adding it the beginning of a new string repeatedly
+
+What values are being returned at each step, or is there a value being returned at each step in the call stack? 
+Think back to our discussion yesterday. Return finishes execution of a function and removes it off the stack. 
+So will each step have a value being returned? 
+	--No, since this is recursion a function will be called until the base condition is met. Once the base 
+		condition is met, values will begin to be returned.
